@@ -1,6 +1,6 @@
 locals {
   # Only create flow log if user selected to create a VPC as well
-  enable_flow_log = var.create_vpc && var.enable_flow_log
+  enable_flow_log = var.enable_flow_log
 
   create_flow_log_cloudwatch_iam_role  = local.enable_flow_log && var.flow_log_destination_type != "s3" && var.create_flow_log_cloudwatch_iam_role
   create_flow_log_cloudwatch_log_group = local.enable_flow_log && var.flow_log_destination_type != "s3" && var.create_flow_log_cloudwatch_log_group
@@ -21,7 +21,7 @@ resource "aws_flow_log" "this" {
   log_format               = var.flow_log_log_format
   iam_role_arn             = local.flow_log_iam_role_arn
   traffic_type             = var.flow_log_traffic_type
-  vpc_id                   = local.vpc_id
+  vpc_id                   = var.vpc_id
   max_aggregation_interval = var.flow_log_max_aggregation_interval
 
   tags = merge(var.tags, var.vpc_flow_log_tags)
@@ -34,7 +34,7 @@ resource "aws_flow_log" "this" {
 resource "aws_cloudwatch_log_group" "flow_log" {
   count = local.create_flow_log_cloudwatch_log_group ? 1 : 0
 
-  name              = "${var.flow_log_cloudwatch_log_group_name_prefix}${local.vpc_id}"
+  name              = "${var.flow_log_cloudwatch_log_group_name_prefix}${var.vpc_id}"
   retention_in_days = var.flow_log_cloudwatch_log_group_retention_in_days
   kms_key_id        = var.flow_log_cloudwatch_log_group_kms_key_id
 

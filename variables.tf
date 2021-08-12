@@ -1,7 +1,6 @@
-variable "create_vpc" {
-  description = "Controls if VPC should be created (it affects almost all resources)"
-  type        = bool
-  default     = true
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  type        = string
 }
 
 variable "name" {
@@ -640,42 +639,6 @@ variable "dhcp_options_netbios_node_type" {
   default     = ""
 }
 
-variable "manage_default_vpc" {
-  description = "Should be true to adopt and manage Default VPC"
-  type        = bool
-  default     = false
-}
-
-variable "default_vpc_name" {
-  description = "Name to be used on the Default VPC"
-  type        = string
-  default     = ""
-}
-
-variable "default_vpc_enable_dns_support" {
-  description = "Should be true to enable DNS support in the Default VPC"
-  type        = bool
-  default     = true
-}
-
-variable "default_vpc_enable_dns_hostnames" {
-  description = "Should be true to enable DNS hostnames in the Default VPC"
-  type        = bool
-  default     = false
-}
-
-variable "default_vpc_enable_classiclink" {
-  description = "Should be true to enable ClassicLink in the Default VPC"
-  type        = bool
-  default     = false
-}
-
-variable "default_vpc_tags" {
-  description = "Additional tags for the Default VPC"
-  type        = map(string)
-  default     = {}
-}
-
 variable "manage_default_network_acl" {
   description = "Should be true to adopt and manage Default Network ACL"
   type        = bool
@@ -1008,24 +971,6 @@ variable "elasticache_outbound_acl_rules" {
   ]
 }
 
-variable "manage_default_security_group" {
-  description = "Should be true to adopt and manage default security group"
-  type        = bool
-  default     = false
-}
-
-variable "default_security_group_name" {
-  description = "Name to be used on the default security group"
-  type        = string
-  default     = "default"
-}
-
-variable "default_security_group_ingress" {
-  description = "List of maps of ingress rules to set on the default security group"
-  type        = list(map(string))
-  default     = null
-}
-
 variable "enable_flow_log" {
   description = "Whether or not to enable VPC Flow Logs"
   type        = bool
@@ -1110,18 +1055,6 @@ variable "flow_log_max_aggregation_interval" {
   default     = 600
 }
 
-variable "create_igw" {
-  description = "Controls if an Internet Gateway is created for public subnets and the related routes that connect them."
-  type        = bool
-  default     = true
-}
-
-variable "create_egress_only_igw" {
-  description = "Controls if an Egress Only Internet Gateway is created and its related routes."
-  type        = bool
-  default     = true
-}
-
 variable "outpost_arn" {
   description = "ARN of Outpost you want to create a subnet in."
   type        = string
@@ -1132,4 +1065,15 @@ variable "outpost_az" {
   description = "AZ where Outpost is anchored."
   type        = string
   default     = null
+}
+
+variable "gateway_id" {
+  description = "The ID of the Internet Gateway"
+  type        = string
+}
+
+variable "egress_only_gateway_id" {
+  description = "The ID of the egress only Internet Gateway"
+  type        = string
+  default     = ""
 }
