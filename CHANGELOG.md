@@ -7,6 +7,24 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v3.6.0"></a>
+## [v3.6.0] - 2021-08-18
+
+- feat: Added device_name to customer gateway object. ([#681](https://github.com/terraform-aws-modules/terraform-aws-vpc/issues/681))
+
+
+<a name="v3.5.0"></a>
+## [v3.5.0] - 2021-08-15
+
+- fix: Return correct route table when enable_public_redshift is set ([#337](https://github.com/terraform-aws-modules/terraform-aws-vpc/issues/337))
+
+
+<a name="v3.4.0"></a>
+## [v3.4.0] - 2021-08-13
+
+- fix: Update the terraform to support new provider signatures ([#678](https://github.com/terraform-aws-modules/terraform-aws-vpc/issues/678))
+
+
 <a name="v3.3.0"></a>
 ## [v3.3.0] - 2021-08-10
 
@@ -1289,7 +1307,10 @@ All notable changes to this project will be documented in this file.
 - Initial commit
 
 
-[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.3.0...HEAD
+[Unreleased]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.6.0...HEAD
+[v3.6.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.5.0...v3.6.0
+[v3.5.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.4.0...v3.5.0
+[v3.4.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.3.0...v3.4.0
 [v3.3.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.2.0...v3.3.0
 [v3.2.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.1.0...v3.2.0
 [v3.1.0]: https://github.com/terraform-aws-modules/terraform-aws-vpc/compare/v3.0.0...v3.1.0
