@@ -1,81 +1,61 @@
 output "private_subnets" {
   description = "List of IDs of private subnets"
-  value       = aws_subnet.private.*.id
+  value       = module.private_subnets.ids
 }
 
 output "private_subnet_arns" {
   description = "List of ARNs of private subnets"
-  value       = aws_subnet.private.*.arn
+  value       = module.private_subnets.arns
 }
 
 output "private_subnets_cidr_blocks" {
   description = "List of cidr_blocks of private subnets"
-  value       = aws_subnet.private.*.cidr_block
+  value       = module.private_subnets.cidr_blocks
 }
 
 output "private_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of private subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.private.*.ipv6_cidr_block
+  value       = module.private_subnets.ipv6_cidr_blocks
 }
 
 output "public_subnets" {
   description = "List of IDs of public subnets"
-  value       = aws_subnet.public.*.id
+  value       = module.subnets["public"].ids
 }
 
 output "public_subnet_arns" {
   description = "List of ARNs of public subnets"
-  value       = aws_subnet.public.*.arn
+  value       = module.subnets["public"].arns
 }
 
 output "public_subnets_cidr_blocks" {
   description = "List of cidr_blocks of public subnets"
-  value       = aws_subnet.public.*.cidr_block
+  value       = module.subnets["public"].cidr_blocks
 }
 
 output "public_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of public subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.public.*.ipv6_cidr_block
-}
-
-output "outpost_subnets" {
-  description = "List of IDs of outpost subnets"
-  value       = aws_subnet.outpost.*.id
-}
-
-output "outpost_subnet_arns" {
-  description = "List of ARNs of outpost subnets"
-  value       = aws_subnet.outpost.*.arn
-}
-
-output "outpost_subnets_cidr_blocks" {
-  description = "List of cidr_blocks of outpost subnets"
-  value       = aws_subnet.outpost.*.cidr_block
-}
-
-output "outpost_subnets_ipv6_cidr_blocks" {
-  description = "List of IPv6 cidr_blocks of outpost subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.outpost.*.ipv6_cidr_block
+  value       = module.subnets["public"].ipv6_cidr_blocks
 }
 
 output "database_subnets" {
   description = "List of IDs of database subnets"
-  value       = aws_subnet.database.*.id
+  value       = module.database_subnets.ids
 }
 
 output "database_subnet_arns" {
   description = "List of ARNs of database subnets"
-  value       = aws_subnet.database.*.arn
+  value       = module.database_subnets.arns
 }
 
 output "database_subnets_cidr_blocks" {
   description = "List of cidr_blocks of database subnets"
-  value       = aws_subnet.database.*.cidr_block
+  value       = module.database_subnets.cidr_blocks
 }
 
 output "database_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of database subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.database.*.ipv6_cidr_block
+  value       = module.database_subnets.ipv6_cidr_blocks
 }
 
 output "database_subnet_group" {
@@ -90,22 +70,22 @@ output "database_subnet_group_name" {
 
 output "redshift_subnets" {
   description = "List of IDs of redshift subnets"
-  value       = aws_subnet.redshift.*.id
+  value       = module.subnets["redshift"].ids
 }
 
 output "redshift_subnet_arns" {
   description = "List of ARNs of redshift subnets"
-  value       = aws_subnet.redshift.*.arn
+  value       = module.subnets["redshift"].arns
 }
 
 output "redshift_subnets_cidr_blocks" {
   description = "List of cidr_blocks of redshift subnets"
-  value       = aws_subnet.redshift.*.cidr_block
+  value       = module.subnets["redshift"].cidr_blocks
 }
 
 output "redshift_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of redshift subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.redshift.*.ipv6_cidr_block
+  value       = module.subnets["redshift"].ipv6_cidr_blocks
 }
 
 output "redshift_subnet_group" {
@@ -115,42 +95,42 @@ output "redshift_subnet_group" {
 
 output "elasticache_subnets" {
   description = "List of IDs of elasticache subnets"
-  value       = aws_subnet.elasticache.*.id
+  value       = module.elasticache_subnets.ids
 }
 
 output "elasticache_subnet_arns" {
   description = "List of ARNs of elasticache subnets"
-  value       = aws_subnet.elasticache.*.arn
+  value       = module.elasticache_subnets.arns
 }
 
 output "elasticache_subnets_cidr_blocks" {
   description = "List of cidr_blocks of elasticache subnets"
-  value       = aws_subnet.elasticache.*.cidr_block
+  value       = module.elasticache_subnets.cidr_blocks
 }
 
 output "elasticache_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of elasticache subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.elasticache.*.ipv6_cidr_block
+  value       = module.elasticache_subnets.ipv6_cidr_blocks
 }
 
 output "intra_subnets" {
   description = "List of IDs of intra subnets"
-  value       = aws_subnet.intra.*.id
+  value       = module.intra_subnets.ids
 }
 
 output "intra_subnet_arns" {
   description = "List of ARNs of intra subnets"
-  value       = aws_subnet.intra.*.arn
+  value       = module.intra_subnets.arns
 }
 
 output "intra_subnets_cidr_blocks" {
   description = "List of cidr_blocks of intra subnets"
-  value       = aws_subnet.intra.*.cidr_block
+  value       = module.intra_subnets.cidr_blocks
 }
 
 output "intra_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of intra subnets in an IPv6 enabled VPC"
-  value       = aws_subnet.intra.*.ipv6_cidr_block
+  value       = module.intra_subnets.ipv6_cidr_blocks
 }
 
 output "elasticache_subnet_group" {
@@ -290,72 +270,62 @@ output "vgw_arn" {
 
 output "public_network_acl_id" {
   description = "ID of the public network ACL"
-  value       = concat(aws_network_acl.public.*.id, [""])[0]
+  value       = module.subnets["public"].network_acl_id
 }
 
 output "public_network_acl_arn" {
   description = "ARN of the public network ACL"
-  value       = concat(aws_network_acl.public.*.arn, [""])[0]
+  value       = module.subnets["public"].network_acl_arn
 }
 
 output "private_network_acl_id" {
   description = "ID of the private network ACL"
-  value       = concat(aws_network_acl.private.*.id, [""])[0]
+  value       = module.private_subnets.network_acl_id
 }
 
 output "private_network_acl_arn" {
   description = "ARN of the private network ACL"
-  value       = concat(aws_network_acl.private.*.arn, [""])[0]
-}
-
-output "outpost_network_acl_id" {
-  description = "ID of the outpost network ACL"
-  value       = concat(aws_network_acl.outpost.*.id, [""])[0]
-}
-
-output "outpost_network_acl_arn" {
-  description = "ARN of the outpost network ACL"
-  value       = concat(aws_network_acl.outpost.*.arn, [""])[0]
+  value       = module.private_subnets.network_acl_arn
 }
 
 output "intra_network_acl_id" {
   description = "ID of the intra network ACL"
-  value       = concat(aws_network_acl.intra.*.id, [""])[0]
+  value       = module.intra_subnets.network_acl_id
 }
 
 output "intra_network_acl_arn" {
   description = "ARN of the intra network ACL"
-  value       = concat(aws_network_acl.intra.*.arn, [""])[0]
+  value       = module.intra_subnets.network_acl_arn
 }
 
 output "database_network_acl_id" {
   description = "ID of the database network ACL"
-  value       = concat(aws_network_acl.database.*.id, [""])[0]
+  value       = module.database_subnets.network_acl_id
 }
 
 output "database_network_acl_arn" {
   description = "ARN of the database network ACL"
-  value       = concat(aws_network_acl.database.*.arn, [""])[0]
+  value       = module.database_subnets.network_acl_arn
 }
 
 output "redshift_network_acl_id" {
   description = "ID of the redshift network ACL"
-  value       = concat(aws_network_acl.redshift.*.id, [""])[0]
+  value       = module.subnets["redshift"].network_acl_id
 }
 
 output "redshift_network_acl_arn" {
   description = "ARN of the redshift network ACL"
-  value       = concat(aws_network_acl.redshift.*.arn, [""])[0]
+  value       = module.subnets["redshift"].network_acl_arn
 }
 
 output "elasticache_network_acl_id" {
   description = "ID of the elasticache network ACL"
-  value       = concat(aws_network_acl.elasticache.*.id, [""])[0]
+  value       = module.elasticache_subnets.network_acl_id
 }
 
 output "elasticache_network_acl_arn" {
   description = "ARN of the elasticache network ACL"
-  value       = concat(aws_network_acl.elasticache.*.arn, [""])[0]
+  value       = module.elasticache_subnets.network_acl_arn
 }
 
 # VPC flow log
